@@ -5,15 +5,25 @@ import java.util.ArrayList;
 public class Controller {
     public static void main(String[] args) {
 
-        new TestPetCreation();
+        new TESTPetCreation();
+        new TESTDisplayBrowser();
 
     }
 }
 
-/* --- Testing: Adding new Pet --- */
-class TestPetCreation
+class TESTDisplayBrowser
 {
-    public TestPetCreation()
+    public TESTDisplayBrowser()
+    {
+        PetPlantBrowser browser = PetPlantBrowser.getInstance();
+        browser.display();
+    }
+}
+
+/* --- Testing: Adding new Pet --- */
+class TESTPetCreation
+{
+    public TESTPetCreation()
     {
         User user = new User("Gerp123", "qwerty123", "gerp123@gmail.com");
         DatabaseManager database = DatabaseManager.getInstance();
