@@ -20,15 +20,32 @@ public class Controller {
         database.addPetData(GermanShepherd);
         database.addPetData(RedeyedTreeFrog);
 
-        // Test Pets
-        Pet Abby    = new Pet(LabradorRetriever, "Abby");
-        Pet Bernard = new Pet(GermanShepherd, "Bernard", LocalDate.of(2006, 11, 13), "Berny.jpg", 'M');
-        Pet Charlie = new Pet(RedeyedTreeFrog, "Chrissy", LocalDate.of(2021, 04, 23), "IMG1523.jpg", 'F');
+        // Test Valid Pets
+        Pet Abby    = new Pet(database.getPetData(0), "Abby");
+        Pet Bernard = new Pet(database.getPetData(1), "Bernard", LocalDate.of(2006, 11, 13), "Berny.jpg", 'M');
+        Pet Charlie = new Pet(database.getPetData(2), "Chrissy", LocalDate.of(2021, 04, 23), "IMG1523.jpg", 'F');
 
-        // Adding Test Pets to User Profile
+        // Test Invalid Pets
+        System.out.println("Invalid Name Errors: ");
+        Pet invalidName = new Pet(LabradorRetriever);
+            invalidName.setName(null);
+            invalidName.setName("");
+            invalidName.setName("ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567");
+        System.out.println("\nInvalid Sex Errors: ");
+        Pet invalidSex = new Pet(GermanShepherd);
+            invalidSex.setSex('?');
+        System.out.println("\nInvalid Date of Birth Errors: ");
+        Pet invalidDOB = new Pet(RedeyedTreeFrog);
+            invalidDOB.setDOB(null);
+            invalidDOB.setDOB(LocalDate.of(2222, 1, 1));
+            invalidDOB.setDOB(LocalDate.of(-1, 1, 1));
+
+        // Adding Valid Test Pets to User Profile
         user.addPet(Abby);
         user.addPet(Bernard);
         user.addPet(Charlie);
+
+        System.out.println();
 
         // Print out all User pets
         user.displayPets();

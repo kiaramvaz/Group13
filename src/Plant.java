@@ -3,9 +3,9 @@ import java.util.ArrayList;
 
 public class Plant {
 
-    String name;
-    String profileImageFilename;
-    PlantData plantData;
+    private String name;
+    private String profileImageFilename;
+    private PlantData plantData;
     private ArrayList<Event> careEvents = new ArrayList<Event>();
 
     public Plant(PlantData plantData, String name, String profileImageFilename) {
