@@ -5,8 +5,16 @@ import java.util.ArrayList;
 public class Controller {
     public static void main(String[] args) {
 
-        /* --- Testing: Adding new Pet --- */
+        new TestPetCreation();
 
+    }
+}
+
+/* --- Testing: Adding new Pet --- */
+class TestPetCreation
+{
+    public TestPetCreation()
+    {
         User user = new User("Gerp123", "qwerty123", "gerp123@gmail.com");
         DatabaseManager database = DatabaseManager.getInstance();
 
@@ -28,27 +36,25 @@ public class Controller {
         // Test Invalid Pets
         System.out.println("Invalid Name Errors: ");
         Pet invalidName = new Pet(LabradorRetriever);
-            invalidName.setName(null);
-            invalidName.setName("");
-            invalidName.setName("ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567");
+        invalidName.setName(null);
+        invalidName.setName("");
+        invalidName.setName("ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567");
         System.out.println("\nInvalid Sex Errors: ");
         Pet invalidSex = new Pet(GermanShepherd);
-            invalidSex.setSex('?');
+        invalidSex.setSex('?');
         System.out.println("\nInvalid Date of Birth Errors: ");
         Pet invalidDOB = new Pet(RedeyedTreeFrog);
-            invalidDOB.setDOB(null);
-            invalidDOB.setDOB(LocalDate.of(2222, 1, 1));
-            invalidDOB.setDOB(LocalDate.of(-1, 1, 1));
+        invalidDOB.setDOB(null);
+        invalidDOB.setDOB(LocalDate.of(2222, 1, 1));
+        invalidDOB.setDOB(LocalDate.of(-1, 1, 1));
 
         // Adding Valid Test Pets to User Profile
         user.addPet(Abby);
         user.addPet(Bernard);
         user.addPet(Charlie);
 
-        System.out.println();
-
         // Print out all User pets
+        System.out.println("\nValid pets in user account: ");
         user.displayPets();
-
     }
 }
