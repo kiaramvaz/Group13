@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f3717c4-bf09-4f83-b27d-3ce7545f444a" name="Changes" comment="Completed Test of Pet creation, might move on to creating rudimentary pet data browser soon">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PetPlantBrowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PetPlantBrowser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +82,15 @@
       <recent name="C:\Users\kille\Desktop\Semester 5 - Fall 2023\Software Engineering\PetPlantCare\PetPlantCare\src" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="Run Controller Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Controller" />
+      <module name="PetPlantCare" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -91,7 +101,6 @@
       <updated>1699429911573</updated>
       <workItem from="1699429912622" duration="701000" />
       <workItem from="1699552711616" duration="5337000" />
-      <workItem from="1699563032671" duration="1621000" />
     </task>
     <task id="LOCAL-00001" summary="wack">
       <option name="closed" value="true" />

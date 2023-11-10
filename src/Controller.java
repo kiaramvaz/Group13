@@ -17,6 +17,8 @@ class TESTDisplayBrowser
     {
         PetPlantBrowser browser = PetPlantBrowser.getInstance();
         browser.display();
+
+        System.out.println();
     }
 }
 
@@ -40,23 +42,24 @@ class TESTPetCreation
 
         // Test Valid Pets
         Pet Abby    = new Pet(database.getPetData(0), "Abby");
+            System.out.println("Database check: " + database.getPetData(0));
         Pet Bernard = new Pet(database.getPetData(1), "Bernard", LocalDate.of(2006, 11, 13), "Berny.jpg", 'M');
         Pet Charlie = new Pet(database.getPetData(2), "Chrissy", LocalDate.of(2021, 04, 23), "IMG1523.jpg", 'F');
 
         // Test Invalid Pets
         System.out.println("Invalid Name Errors: ");
         Pet invalidName = new Pet(LabradorRetriever);
-        invalidName.setName(null);
-        invalidName.setName("");
-        invalidName.setName("ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567");
+            invalidName.setName(null);
+            invalidName.setName("");
+            invalidName.setName("ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567");
         System.out.println("\nInvalid Sex Errors: ");
         Pet invalidSex = new Pet(GermanShepherd);
-        invalidSex.setSex('?');
+            invalidSex.setSex('?');
         System.out.println("\nInvalid Date of Birth Errors: ");
         Pet invalidDOB = new Pet(RedeyedTreeFrog);
-        invalidDOB.setDOB(null);
-        invalidDOB.setDOB(LocalDate.of(2222, 1, 1));
-        invalidDOB.setDOB(LocalDate.of(-1, 1, 1));
+            invalidDOB.setDOB(null);
+            invalidDOB.setDOB(LocalDate.of(2222, 1, 1));
+            invalidDOB.setDOB(LocalDate.of(-1, 1, 1));
 
         // Adding Valid Test Pets to User Profile
         user.addPet(Abby);
@@ -66,5 +69,7 @@ class TESTPetCreation
         // Print out all User pets
         System.out.println("\nValid pets in user account: ");
         user.displayPets();
+
+        System.out.println();
     }
 }

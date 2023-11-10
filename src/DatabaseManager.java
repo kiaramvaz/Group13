@@ -24,10 +24,11 @@ public class DatabaseManager {
 
     public PetData getPetData(int index)
     {
-        if(index > petDataArray.size() || index < 0)
+        if(index < petDataArray.size() && index >= 0)
         {
             return petDataArray.get(index);
         }
+
         return null;
     }
 

@@ -28,6 +28,7 @@ public class User {
         for (int i = 0; i < pets.size(); i++)
         {
             Pet current = pets.get(i);
+            //System.out.println("Current name: " + current.getName());
             System.out.println("Pet " + (i + 1) + ": " + current.getName() + ", Born " + current.getDOB() + ". " + current.getPetData().getBreed() + ", " + current.getPetData().getSpecies());
         }
     }

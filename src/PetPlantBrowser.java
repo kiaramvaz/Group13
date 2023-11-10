@@ -23,7 +23,7 @@ public class PetPlantBrowser {
 
         while (!input.equals("end"))
         {
-            System.out.println("Pets:");
+            System.out.println("Pets in Database:");
 
             for (int i = 0; database.getPetData(i) != null; i++)
             {
@@ -31,7 +31,7 @@ public class PetPlantBrowser {
                 System.out.println("Pet " + (i + 1) + ": " + current.getSpecies() + ", " + current.getBreed());
             }
 
-            System.out.println("Plants:");
+            System.out.println("\nPlants in Database:");
 
             for (int i = 0; database.getPlantData(i) != null; i++)
             {
@@ -39,7 +39,7 @@ public class PetPlantBrowser {
                 System.out.println("Pet " + (i + 1) + ": " + current.getSpecies() + ", " + current.getType());
             }
 
-            System.out.println("Type 'end' to exit: ");
+            System.out.println("\nType 'end' to exit: ");
 
             input = scanner.nextLine();
         }
