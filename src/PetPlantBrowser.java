@@ -27,11 +27,19 @@ public class PetPlantBrowser {
 
             for (int i = 0; database.getPetData(i) != null; i++)
             {
-                System.out.println("Pet " + (i + 1) + "");
+                PetData current = database.getPetData(i);
+                System.out.println("Pet " + (i + 1) + ": " + current.getSpecies() + ", " + current.getBreed());
             }
 
             System.out.println("Plants:");
 
+            for (int i = 0; database.getPlantData(i) != null; i++)
+            {
+                PlantData current = database.getPlantData(i);
+                System.out.println("Pet " + (i + 1) + ": " + current.getSpecies() + ", " + current.getType());
+            }
+
+            System.out.println("Type 'end' to exit: ");
 
             input = scanner.nextLine();
         }

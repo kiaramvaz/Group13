@@ -24,7 +24,11 @@ public class DatabaseManager {
 
     public PetData getPetData(int index)
     {
-        return petDataArray.get(index);
+        if(index > petDataArray.size() || index < 0)
+        {
+            return petDataArray.get(index);
+        }
+        return null;
     }
 
     public void removePetData(PetData remPetData) {
@@ -38,7 +42,11 @@ public class DatabaseManager {
 
     public PlantData getPlantData(int index)
     {
-        return plantDataArray.get(index);
+        if(index > plantDataArray.size() || index < 0)
+        {
+            return plantDataArray.get(index);
+        }
+        return null;
     }
 
     public void removePlantData(PlantData remPlantData) {
