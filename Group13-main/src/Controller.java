@@ -39,6 +39,16 @@ public class Controller {
             check = checkUsername(username);
         }
 
+        //Enter Email
+        System.out.println("Enter Email: ");
+        email = reader.nextLine();
+        check = checkEmail(email);
+        while(!check){
+            System.out.println("Enter Email: ");
+            email = reader.nextLine();
+            check = checkEmail(email);
+        }
+
         //Enter Password
         System.out.println("Enter Password: ");
         password = reader.nextLine();
@@ -59,17 +69,12 @@ public class Controller {
             check = checkRetypedPassword(password, repassword);
         }
 
-        //Enter Email
-        System.out.println("Enter Email: ");
-        email = reader.nextLine();
-        check = checkEmail(email);
-        while(!check){
-            System.out.println("Enter Email: ");
-            email = reader.nextLine();
-            check = checkEmail(email);
-        }
+
         User newUser =  new User(username, password, email);
         userList.add(newUser);
+
+        System.out.println("Account creation successful");
+
 
 
     }
