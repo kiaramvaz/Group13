@@ -33,7 +33,7 @@ public class Pet {
         return name;
     }
 
-    public void setName(String name) {
+    public boolean setName(String name) {
         if (name == null)
         {
             System.out.println("Name is null.");
@@ -45,17 +45,19 @@ public class Pet {
         else
         {
             this.name = name;
+            return true;
         }
+        return false;
     }
 
     public LocalDate getDOB() {
         return DOB;
     }
 
-    public void setDOB(LocalDate DOB) {
+    public boolean setDOB(LocalDate DOB) {
         if (DOB == null)
         {
-            System.out.println("Date of Birth is null.");
+            System.out.println("Date of Birth data read error, please use the format: (DD/MM/YYYY)");
         }
         else if (DOB.isAfter(LocalDate.now()))
         {
@@ -68,7 +70,9 @@ public class Pet {
         else
         {
             this.DOB = DOB;
+            return true;
         }
+        return false;
     }
 
     public String getProfileImageFilename() {
@@ -91,7 +95,7 @@ public class Pet {
         return sex;
     }
 
-    public void setSex(char sex) {
+    public boolean setSex(char sex) {
         // Unnecessary because char can't be null, Character can
         /*if (DOB == null)
         {
@@ -108,7 +112,9 @@ public class Pet {
         else
         {
             System.out.println("Invalid Sex: " + sex);
+            return false;
         }
+        return true;
     }
 
     public void addEvent(Event newEvent) {

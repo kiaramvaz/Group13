@@ -17,6 +17,13 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
+    public User() {
+        this.username = "";
+        this.password = "";
+        this.email = "";
+        this.phoneNumber = "";
+    }
+
     public User(String username, String password, String email) {
         this.username = username;
         this.password = password;
@@ -49,5 +56,13 @@ public class User {
     public void removePlant(Plant remPlant) {
         // Add: Are you sure? confirmation text
         plants.remove(remPlant);
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public String getUsername(){
+        return username;
     }
 }

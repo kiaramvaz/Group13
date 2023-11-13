@@ -18,30 +18,20 @@ public class PetPlantBrowser {
 
     public void display()
     {
-        Scanner scanner = new Scanner(System.in);
-        String input = "";
+        System.out.println("Pets in Database:");
 
-        while (!input.equals("end"))
+        for (int i = 0; database.getPetData(i) != null; i++)
         {
-            System.out.println("Pets in Database:");
+            PetData current = database.getPetData(i);
+            System.out.println("Pet " + (i + 1) + ": " + current.getSpecies() + ", " + current.getBreed());
+        }
 
-            for (int i = 0; database.getPetData(i) != null; i++)
-            {
-                PetData current = database.getPetData(i);
-                System.out.println("Pet " + (i + 1) + ": " + current.getSpecies() + ", " + current.getBreed());
-            }
+        System.out.println("\nPlants in Database:");
 
-            System.out.println("\nPlants in Database:");
-
-            for (int i = 0; database.getPlantData(i) != null; i++)
-            {
-                PlantData current = database.getPlantData(i);
-                System.out.println("Pet " + (i + 1) + ": " + current.getSpecies() + ", " + current.getType());
-            }
-
-            System.out.println("\nType 'end' to exit: ");
-
-            input = scanner.nextLine();
+        for (int i = 0; database.getPlantData(i) != null; i++)
+        {
+            PlantData current = database.getPlantData(i);
+            System.out.println("Pet " + (i + 1) + ": " + current.getSpecies() + ", " + current.getType());
         }
     }
 }

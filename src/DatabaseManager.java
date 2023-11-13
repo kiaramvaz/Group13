@@ -32,6 +32,19 @@ public class DatabaseManager {
         return null;
     }
 
+    public PetData getPetData(String petDataName)
+    {
+        for(int i = 0; i < petDataArray.size(); i++)
+        {
+            if(petDataArray.get(i).getBreed().equals(petDataName))
+            {
+                return petDataArray.get(i);
+            }
+        }
+
+        return null;
+    }
+
     public void removePetData(PetData remPetData) {
         // Add: Are you sure? confirmation text
         petDataArray.remove(remPetData);
@@ -47,6 +60,19 @@ public class DatabaseManager {
         {
             return plantDataArray.get(index);
         }
+        return null;
+    }
+
+    public PlantData getPlantData(String plantDataName)
+    {
+        for(int i = 0; i < plantDataArray.size(); i++)
+        {
+            if(plantDataArray.get(i).getSpecies().equals(plantDataName))
+            {
+                return plantDataArray.get(i);
+            }
+        }
+
         return null;
     }
 
