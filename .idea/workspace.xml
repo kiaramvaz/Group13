@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f3717c4-bf09-4f83-b27d-3ce7545f444a" name="Changes" comment="Done with simple browser display">
+    <list default="true" id="7f3717c4-bf09-4f83-b27d-3ce7545f444a" name="Changes" comment="Input version of pet creation finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PetData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PetData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PetPlantBrowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PetPlantBrowser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Plant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Plant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlantData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlantData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +98,7 @@
       <updated>1699429911573</updated>
       <workItem from="1699429912622" duration="701000" />
       <workItem from="1699552711616" duration="5337000" />
-      <workItem from="1699842288954" duration="5987000" />
+      <workItem from="1699842288954" duration="6595000" />
     </task>
     <task id="LOCAL-00001" summary="wack">
       <option name="closed" value="true" />
@@ -148,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699586138266</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Input version of pet creation finished">
+      <option name="closed" value="true" />
+      <created>1699848514606</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1699848514606</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +169,7 @@
     <MESSAGE value="wack" />
     <MESSAGE value="Completed Test of Pet creation, might move on to creating rudimentary pet data browser soon" />
     <MESSAGE value="Done with simple browser display" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done with simple browser display" />
+    <MESSAGE value="Input version of pet creation finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="Input version of pet creation finished" />
   </component>
 </project>
