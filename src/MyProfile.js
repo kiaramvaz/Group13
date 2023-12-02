@@ -6,6 +6,9 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Dashboard from "./Dashboard.js";
+import { Link as RouterLink } from 'react-router-dom';
+import { Link as MUILink} from '@mui/material';
 
 const UserProfile = () => {
     // Sample user data
@@ -22,9 +25,11 @@ const UserProfile = () => {
         <Container component="main" maxWidth="xl" sx={{ padding: 0, margin: 'auto', height: '100vh', overflow: 'hidden', bgcolor: '#dbead2' }}>
             <AppBar position="fixed">
                 <Toolbar sx={{ height: '100%', bgcolor: "#327155"  }}>
+                    <MUILink component={RouterLink} to="/Dashboard">
                     <IconButton edge="start" color="inherit" aria-label="back">
                         <ArrowBackIcon />
                     </IconButton>
+                    </MUILink>
                     <Typography align= "left" variant="h6" component="div" sx={{ flexGrow: 1,  }}>
                         Dashboard
                     </Typography>

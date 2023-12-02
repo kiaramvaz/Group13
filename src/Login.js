@@ -1,3 +1,4 @@
+
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -5,14 +6,15 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+import { Link as MUILink} from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import Dashboard from "./Dashboard";
+import { Link as RouterLink } from 'react-router-dom';
 
 
 const defaultTheme = createTheme();
@@ -82,7 +84,11 @@ export default function SignInSide() {
                                 id="password"
                                 autoComplete="current-password"
                             />
+
+                            <MUILink component={RouterLink} to="/Dashboard">
                             <Button
+
+
                                 type="submit"
                                 fullWidth
                                 variant="contained"
@@ -90,16 +96,19 @@ export default function SignInSide() {
                                     '&:hover': {
                                         bgcolor: '#3A6152', // Hover background color
                                     }}}
+
+
                             >
                                 Sign In
                             </Button>
+                            </MUILink>
                             <Grid container>
                                 <Grid item xs>
                                 </Grid>
                                 <Grid item>
-                                    <Link href="#" variant="body2" sx={{color: '#99a98f',}}>
+                                    <MUILink href="/Signup" variant="body2" sx={{color: '#99a98f',}}>
                                         {"Don't have an account? Sign Up"}
-                                    </Link>
+                                    </MUILink>
                                 </Grid>
                             </Grid>
                         </Box>

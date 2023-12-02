@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+import{ Link as MUILink} from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -14,7 +14,8 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {Profiler} from "react";
 import Person2SharpIcon from '@mui/icons-material/Person2Sharp';
-
+import { Link as RouterLink } from 'react-router-dom';
+import Dashboard from "./Dashboard";
 
 
 // TODO remove, this demo shouldn't need to reset the theme.
@@ -98,6 +99,8 @@ export default function SignUp() {
                             </Grid>
 
                         </Grid>
+
+                        <MUILink component={RouterLink} to="/Dashboard">
                         <Button
                             type="submit"
                             fullWidth
@@ -110,11 +113,12 @@ export default function SignUp() {
                         >
                             Sign Up
                         </Button>
+                        </MUILink>
                         <Grid container justifyContent="flex-end">
                             <Grid item>
-                                <Link href="#" variant="body2" sx={{color: '#327155',}}>
+                                <MUILink href="/Login" variant="body2" sx={{color: '#327155',}}>
                                     Already have an account? Sign in
-                                </Link>
+                                </MUILink>
                             </Grid>
                         </Grid>
                     </Box>
