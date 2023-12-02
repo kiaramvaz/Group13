@@ -22,6 +22,7 @@ import MyPlants from "./MyPlants";
 import MyPets from "./MyPets";
 import AddPlant from "./AddPlant";
 import AddPet from "./AddPet";
+import ToDoList from "./ToDoList";
 import { Link as RouterLink } from 'react-router-dom';
 import { Link as MUILink} from '@mui/material';
 
@@ -85,7 +86,7 @@ export const mainListItems = (
 
 export const secondaryListItems = (
     <React.Fragment>
-        <MUILink component={RouterLink} to="#">
+        <MUILink component={RouterLink} to="/ToDoList">
         <ListItemButton sx={{ color: 'black' }}>
             <ListItemIcon sx={{ color: '#327155' }}>
                 <ListAltOutlinedIcon />

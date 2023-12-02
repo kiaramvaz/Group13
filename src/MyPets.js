@@ -6,11 +6,11 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import PetProfile from './PetProfile';
 import Grid from '@mui/material/Grid';
-import IconButton from '@mui/material/IconButton';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Dashboard from "./Dashboard.js";
 import { Link as RouterLink } from 'react-router-dom';
 import { Link as MUILink} from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const allPetsData = [
     {

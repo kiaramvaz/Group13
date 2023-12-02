@@ -18,6 +18,8 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Dashboard from "./Dashboard.js";
 import { Link as RouterLink } from 'react-router-dom';
 import { Link as MUILink} from '@mui/material';
+import MyPets from "./MyPets";
+
 const defaultTheme = createTheme();
 
 // Define pet_options
@@ -157,6 +159,7 @@ export default function AddPet() {
                                 />
                             </Grid>
                         </Grid>
+                        <MUILink component={RouterLink} to="/MyPets">
                         <Button
                             type="submit"
                             fullWidth
@@ -173,11 +176,12 @@ export default function AddPet() {
                         >
                             Add Pet
                         </Button>
+                        </MUILink>
                         <Grid container justifyContent="flex-end">
                             <Grid item>
-                                <Link href="#" variant="body2" sx={{ color: '#327155' }}>
+                                <MUILink href="/MyPets" variant="body2" sx={{ color: '#327155' }}>
                                     Back to My Pets
-                                </Link>
+                                </MUILink>
                             </Grid>
                         </Grid>
                     </Box>

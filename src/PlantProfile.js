@@ -8,8 +8,13 @@ const PlantProfile = ({ plantData }) => {
   const { name, type, age, picture } = plantData;
 
   return (
-    <Card sx={{ minWidth: 275, margin: 'auto' }}>
-      <CardMedia component="img" alt={name} height="140" width="140" image={picture} />
+    <Card sx={{ maxWidth: 300, marginBottom: 2 }}>
+      <CardMedia
+                      component="img"
+                      alt={name}
+                      height="140"
+                      image={picture}
+                  />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {name}

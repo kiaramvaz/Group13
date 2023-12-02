@@ -22,37 +22,37 @@ const allPlantsData = [
     name: 'Fern',
     type: 'Fern',
     age: '1 year',
-    picture: 'https://placeimg.com/202/202/nature',
+    picture: 'plant2.jpg',
   },
   {
     name: 'Snake Plant',
     type: 'Indoor',
     age: '3 years',
-    picture: 'https://placeimg.com/203/203/nature',
+    picture: 'plant3.jpg',
   },
   {
     name: 'Lavender',
     type: 'Herb',
     age: '1.5 years',
-    picture: 'https://placeimg.com/204/204/nature',
+    picture: 'plant4.jpg',
   },
   {
     name: 'Palm',
     type: 'Tree',
     age: '4 years',
-    picture: 'https://placeimg.com/205/205/nature',
+    picture: 'plant5.jpg',
   },
   {
     name: 'Succulent',
     type: 'Cactus',
     age: '2.5 years',
-    picture: 'https://placeimg.com/206/206/nature',
+    picture: 'plant6.jpg',
   },
 ];
 
 const MyPlantsPage = () => {
   return (
-    <Container component="main" maxWidth="xs" sx={{ padding: 0, margin: 0, height: '100vh', overflow: 'hidden' }}>
+     <Container component="main" maxWidth="xs" sx={{ padding: 0, margin: 0, height: '100vh', overflow: 'hidden' }}>
       <CssBaseline />
       <AppBar position="fixed">
                       <Toolbar sx={{ height: '100%', bgcolor: "#327155"  }}>

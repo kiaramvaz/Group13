@@ -18,6 +18,8 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Dashboard from "./Dashboard.js";
 import { Link as RouterLink } from 'react-router-dom';
 import { Link as MUILink} from '@mui/material';
+import MyPlants from "./MyPlants";
+
 const defaultTheme = createTheme();
 
 // Define house_plants
@@ -154,6 +156,7 @@ export default function AddPlant() {
                                 />
                             </Grid>
                         </Grid>
+                        <MUILink component={RouterLink} to="/MyPlants">
                         <Button
                             type="submit"
                             fullWidth
@@ -170,11 +173,12 @@ export default function AddPlant() {
                         >
                             Add Plant
                         </Button>
+                        </MUILink>
                         <Grid container justifyContent="flex-end">
                             <Grid item>
-                                <Link href="#" variant="body2" sx={{ color: '#327155' }}>
+                                <MUILink href="/MyPlants" variant="body2" sx={{ color: '#327155' }}>
                                     Back to My Plants
-                                </Link>
+                                </MUILink>
                             </Grid>
                         </Grid>
                     </Box>
