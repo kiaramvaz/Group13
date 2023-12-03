@@ -17,7 +17,7 @@ const UserProfile = () => {
         email: 'john@example.com',
         age: 30,
         phoneNumber: '+1 123-456-7890',
-        address: '123 Main St, City, Country', // Sample address
+        //address: '123 Main St, City, Country', // Sample address
         profilePicture: 'https://placekitten.com/150/150', // Sample profile picture URL
     };
 

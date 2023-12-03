@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
 const PetProfile = ({ petData }) => {
-    const { name, species, age, owner, picture } = petData;
+    const { name, species, type, age, picture } = petData;
 
     return (
         <Card sx={{ maxWidth: 300, marginBottom: 2 }}>
@@ -17,16 +17,16 @@ const PetProfile = ({ petData }) => {
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    {name}
+                    {petData.petName}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                     Species: {species}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    Age: {age} years
+                    Type: {type}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    Owner: {owner}
+                    Age: {age} years
                 </Typography>
             </CardContent>
         </Card>

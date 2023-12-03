@@ -12,44 +12,14 @@ import { Link as MUILink} from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-const allPetsData = [
-    {
-        name: 'Bella',
-        species: 'Cat',
-        age: 3,
-        picture: 'https://placekitten.com/201/201',
-    },
-    {
-        name: 'Charlie',
-        species: 'Dog',
-        age: 4,
-        picture: 'https://placekitten.com/202/202',
-    },
-    {
-        name: 'Daisy',
-        species: 'Dog',
-        age: 1,
-        picture: 'https://placekitten.com/203/203',
-    },
-    {
-        name: 'Oliver',
-        species: 'Cat',
-        age: 2,
-        picture: 'https://placekitten.com/204/204',
-    },
-    {
-        name: 'Milo',
-        species: 'Dog',
-        age: 5,
-        picture: 'https://placekitten.com/205/205',
-    },
-    {
-        name: 'Lola',
-        species: 'Cat',
-        age: 1,
-        picture: 'https://placekitten.com/206/206',
-    },
-];
+const allPetsData = [];
+const storedPets = JSON.parse(localStorage.getItem('pets')) || [];
+
+storedPets.forEach(storedPet => {
+    allPetsData.push(storedPet);
+});
+
+//console.log(allPetsData);
 
 const MyPetsPage = () => {
     return (

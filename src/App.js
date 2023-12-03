@@ -12,6 +12,7 @@ import AddPlant from "./AddPlant";
 import AddPet from "./AddPet";
 import ToDoList from "./ToDoList";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import DatabaseManager from "./DatabaseManager";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/AddPlant" element={<AddPlant />} />
         <Route path="/AddPet" element={<AddPet />} />
         <Route path="/ToDoList" element={<ToDoList />} />
+          <Route path="/Database" element={<DatabaseManager />} />
         </Routes>
       </div>
     </Router>

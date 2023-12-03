@@ -22,8 +22,8 @@ import MyPlants from "./MyPlants";
 
 const defaultTheme = createTheme();
 
-// Define house_plants
-const house_plants = [
+// Define
+const plantNicknameOptions = [
     "Spider Plant",
     "Snake Plant",
     "Pothos",
@@ -71,11 +71,27 @@ const house_plants = [
     "Kalanchoe",
     "Pilea",
     "Fern",
-    "Air Plant"
-]
+    "Air Plant",
+];
 
+// Define
+const plantTypeOptions = [
+    "House Plant",
+    "Outdoor Plant",
+    "Garden Plant",
+];
 
-export default function AddPlant() {
+// Define
+const plantSpeciesOptions = [
+    "Monstera Deliciosa",
+    "Dracaena trifasciata",
+    "Ficus lyrata",
+    "Agave attenuata",
+    "Lavandula angustifolia",
+    "Cinnamomea",
+];
+
+/*export default function AddPlant() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -84,6 +100,31 @@ export default function AddPlant() {
             age: data.get('age'),
             picture: data.get('picture'), // This will contain the File object
         });
+    };*/
+
+export default function AddPlant() {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        //localStorage.clear();
+
+        // Get existing items from local storage
+        const existingItems = JSON.parse(localStorage.getItem('plants')) || [];
+
+        const plantData = {
+            plantID: existingItems.length > 0 ? Math.max(...existingItems.map(item => item.plantID)) + 1 : 0,//document.getElementById('plantID').value;
+            plantName: document.getElementById('name').value,
+            nickname: document.getElementById('nickname').value,
+            species: document.getElementById('plantSpecies').value,
+            type: document.getElementById('plantType').value,
+            picture: document.getElementById('picture').files[0].name,
+        };
+
+        existingItems[plantData.plantID] = plantData;
+
+        console.log(existingItems);
+
+        localStorage.setItem('plants', JSON.stringify(existingItems));
     };
 
     return (
@@ -118,12 +159,23 @@ export default function AddPlant() {
                     </Typography>
                     <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                         <Grid container spacing={2}>
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    id="name"
+                                    label="Name"
+                                    name="name"
+                                    type="text"
+                                    autoComplete="off"
+                                />
+                            </Grid>
                             <Grid item xs={12} >
                                 <Autocomplete
                                     freeSolo
-                                    id="generalName"
+                                    id="nickname"
                                     disableClearable
-                                    options={house_plants}
+                                    options={plantNicknameOptions}
                                     renderInput={(params) => (
                                         <TextField
                                             {...params}
@@ -136,15 +188,40 @@ export default function AddPlant() {
                                     )}
                                 />
                             </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    id="age"
-                                    label="Age"
-                                    name="age"
-                                    type="text"
-                                    autoComplete="off"
+                            <Grid item xs={12} >
+                                <Autocomplete
+                                    freeSolo
+                                    id="plantSpecies"
+                                    disableClearable
+                                    options={plantSpeciesOptions}
+                                    renderInput={(params) => (
+                                        <TextField
+                                            {...params}
+                                            label="Species"
+                                            InputProps={{
+                                                ...params.InputProps,
+                                                type: 'search',
+                                            }}
+                                        />
+                                    )}
+                                />
+                            </Grid>
+                            <Grid item xs={12} >
+                                <Autocomplete
+                                    freeSolo
+                                    id="plantType"
+                                    disableClearable
+                                    options={plantTypeOptions}
+                                    renderInput={(params) => (
+                                        <TextField
+                                            {...params}
+                                            label="Type"
+                                            InputProps={{
+                                                ...params.InputProps,
+                                                type: 'search',
+                                            }}
+                                        />
+                                    )}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -156,7 +233,7 @@ export default function AddPlant() {
                                 />
                             </Grid>
                         </Grid>
-                        <MUILink component={RouterLink} to="/MyPlants">
+
                         <Button
                             type="submit"
                             fullWidth
@@ -173,7 +250,7 @@ export default function AddPlant() {
                         >
                             Add Plant
                         </Button>
-                        </MUILink>
+
                         <Grid container justifyContent="flex-end">
                             <Grid item>
                                 <MUILink href="/MyPlants" variant="body2" sx={{ color: '#327155' }}>

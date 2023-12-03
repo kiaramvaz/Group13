@@ -124,4 +124,12 @@ public class Pet {
     public void removeEvent(Event remEvent) {
         careEvents.remove(remEvent);
     }
+
+    public void setCareEvents(ArrayList<Event> careEvents) {
+        this.careEvents = careEvents;
+    }
+
+    public ArrayList<Event> getCareEvents() {
+        return careEvents;
+    }
 }

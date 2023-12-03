@@ -10,18 +10,25 @@ import Heading from './Heading.js';
 import Typography from '@mui/material/Typography';
 
 // Generate Order Data
-function createData(id, species, type) {
-    return { id, species, type};
+/*function displayPlant(id, name, nickname, species, type) {
+    return { id, name, nickname, species, type};
 }
 
 const rows = [
-    createData(0, 'Monstera Deliciosa', 'Indoor'),
-    createData(1, 'Snake Plant', 'Indoor'),
-    createData(2, 'Fiddle Leaf Fig', 'Indoor'),
-    createData(3, 'Succulent', 'Indoor'),
-    createData(4, 'Lavender', 'Outdoor'),
-    createData(5, 'Rose Bush', 'Outdoor'),
-];
+    displayPlant(0, 'Monstera Deliciosa 1', 'Monstera Deliciosa', 'Monstera Deliciosa', 'Indoor'),
+    displayPlant(1, 'Snake Plant 1', 'Snake Plant', 'Dracaena trifasciata', 'Indoor'),
+    displayPlant(2, 'Reggie', 'Fiddle Leaf Fig', 'Ficus lyrata', 'Indoor'),
+    displayPlant(3, 'Soos', 'Foxtail Agave', 'Agave attenuata', 'Indoor'),
+    displayPlant(4, 'Lavender Bush 2', 'Lavender', 'Lavandula angustifolia', 'Outdoor'),
+    displayPlant(5, 'Rosie', 'Red Rose', 'Cinnamomea', 'Outdoor'),
+];*/
+
+const rows = [];
+const storedPlants = JSON.parse(localStorage.getItem('plants')) || [];
+
+storedPlants.forEach(storedPlant => {
+    rows.push(storedPlant);
+});
 
 function preventDefault(event) {
     event.preventDefault();
@@ -36,15 +43,17 @@ export default function Plants() {
             <Table size="small">
                 <TableHead>
                     <TableRow>
-                        <TableCell align="left">Species</TableCell>
-                        <TableCell align="left">Type</TableCell>
+                        <TableCell align="left">Name</TableCell>
+                        <TableCell align="center">Common Name</TableCell>
+                        <TableCell align="right">Type</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {rows.map((row) => (
                         <TableRow key={row.id}>
-                            <TableCell align="left">{row.species}</TableCell>
-                            <TableCell align="left">{`${row.type}`}</TableCell>
+                            <TableCell align="left">{row.plantName}</TableCell>
+                            <TableCell align="center">{`${row.nickname}`}</TableCell>
+                            <TableCell align="right">{`${row.type}`}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

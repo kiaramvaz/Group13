@@ -31,7 +31,7 @@ public class PetPlantBrowser {
         for (int i = 0; database.getPlantData(i) != null; i++)
         {
             PlantData current = database.getPlantData(i);
-            System.out.println("Pet " + (i + 1) + ": " + current.getSpecies() + ", " + current.getType());
+            System.out.println("Plant " + (i + 1) + ": " + current.getNickname() + ", " + current.getType());
         }
     }
 }

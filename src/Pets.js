@@ -10,18 +10,25 @@ import Heading from './Heading.js';
 import Typography from '@mui/material/Typography';
 
 // Generate Order Data
-function createData(id, name, species) {
-    return { id, name, species};
+/*function displayPet(id, name, species, type, age) {
+    return { id, name, species, type, age};
 }
 
 const rows = [
-    createData(0, 'Elvis', 'Dog - Maltipoo'),
-    createData(1, 'Bella', 'Cat - Siamese'),
-    createData(2, 'Charlie', 'Dog - Golden Retriever'),
-    createData(3, 'Lucy', 'Cat - Persian'),
-    createData(4, 'Max', 'Dog - Beagle'),
-    createData(5, 'Luna', 'Cat - Ragdoll'),
-];
+    displayPet(0, 'Elvis', 'Maltipoo', 'Dog', 2),
+    displayPet(1, 'Bella', 'Siamese', 'Cat', 4),
+    displayPet(2, 'Charlie', 'Golden Retriever', 'Dog', 6),
+    displayPet(3, 'Lucy', 'Persian', 'Cat', 9),
+    displayPet(4, 'Max', 'Beagle', 'Dog', 13),
+    displayPet(5, 'Luna', 'Ragdoll', 'Cat', 10),
+];*/
+
+const rows = [];
+const storedPets = JSON.parse(localStorage.getItem('pets')) || [];
+
+storedPets.forEach(storedPet => {
+    rows.push(storedPet);
+});
 
 function preventDefault(event) {
     event.preventDefault();
@@ -38,13 +45,15 @@ export default function Pets() {
                     <TableRow>
                         <TableCell align="left">Name</TableCell>
                         <TableCell align="center">Species</TableCell>
+                        <TableCell align="right">Type</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {rows.map((row) => (
                         <TableRow key={row.id}>
-                            <TableCell align="left">{row.name}</TableCell>
+                            <TableCell align="left">{row.petName}</TableCell>
                             <TableCell align="center">{`${row.species}`}</TableCell>
+                            <TableCell align="right">{`${row.type}`}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

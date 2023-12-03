@@ -1,5 +1,6 @@
 import javax.xml.crypto.Data;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.*;
@@ -15,16 +16,113 @@ public class Controller {
         TESTAccountCreation();
 
         System.out.println("--- PET CREATION TEST: ---\n");
-        TESTPetCreation();
+        TESTPetCreation(userList.get(0));
 
-        //TESTDisplayBrowser();
+        System.out.println("--- PLANT CREATION TEST: ---\n");
+        TESTPlantCreation(userList.get(0));
+
+        System.out.println("--- TODO LIST TEST: ---\n");
+        new TodoList().displayTodaysEvents(userList.get(0));
     }
 
-    public static void TESTDisplayBrowser(){
+    /*public static void TESTDisplayBrowser() {
         PetPlantBrowser browser = PetPlantBrowser.getInstance();
         browser.display();
 
         System.out.println();
+    }*/
+
+    public static ArrayList<Event> userReviewDefaultEvents (ArrayList<Event> eventList, String subjectName) {
+        ArrayList<Event> returnEvents = new ArrayList<>();
+
+        for (int i = 0; i < eventList.size(); i++)
+        {
+            Event currentEvent = eventList.get(i);
+            currentEvent.setSubjectName(subjectName);
+
+            String response;
+
+            do {
+                System.out.println("Event " + i + ": " + currentEvent.getEventName() + ", for " + currentEvent.getSubjectName());
+                System.out.println("Date " + currentEvent.getDate() + ", Time " + currentEvent.getTime() + ", Frequency " + currentEvent.getFrequency());
+
+                System.out.println("edit, skip, or save the current event? ");
+                response = reader.nextLine();
+
+                if (response.equals("edit"))
+                {
+                    String editResponse;
+
+                    do {
+                        System.out.println("What to edit? event name, subject name, date, time, frequency, or back?");
+                        editResponse = reader.nextLine();
+
+                        String attributeResponse;
+
+                        if(editResponse.equals("event name"))
+                        {
+                            System.out.println("Enter event name: ");
+                            attributeResponse = reader.nextLine();
+                            currentEvent.setEventName(attributeResponse);
+                        }
+                        else if(editResponse.equals("subject name"))
+                        {
+                            System.out.println("Enter subject name: ");
+                            attributeResponse = reader.nextLine();
+                            currentEvent.setSubjectName(attributeResponse);
+                        }
+                        else if(editResponse.equals("date"))
+                        {
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                            LocalDate eventDate;
+
+                            do {
+                                System.out.println("Enter event date (DD/MM/YYYY): ");
+                                try {
+                                    eventDate = LocalDate.parse(reader.nextLine(), formatter);
+                                } catch (Exception e)
+                                {
+                                    //System.out.println(e);
+                                    eventDate = null;
+                                }
+                            } while (!currentEvent.setDate(eventDate));
+                        }
+                        else if(editResponse.equals("time"))
+                        {
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH-mm-ss");
+                            LocalTime eventTime;
+
+                            do {
+                                System.out.println("Enter event time (HH-mm-ss): ");
+                                try {
+                                    eventTime = LocalTime.parse(reader.nextLine(), formatter);
+                                } catch (Exception e)
+                                {
+                                    //System.out.println(e);
+                                    eventTime = null;
+                                }
+                            } while (!currentEvent.setTime(eventTime));
+                        }
+                        else if(editResponse.equals("frequency"))
+                        {
+                            do {
+                                System.out.println("Enter event frequency (None, Daily, Weekly): ");
+                                attributeResponse = reader.nextLine();
+                            } while (!currentEvent.setFrequency(attributeResponse));
+                        }
+
+                    } while (!editResponse.equals("back"));
+                }
+                else if (response.equals("save"))
+                {
+                    returnEvents.add(currentEvent);
+                    break;
+                }
+
+            } while (!response.equals("skip"));
+        }
+
+        return returnEvents;
     }
 
     public static void TESTAccountCreation(){
@@ -112,7 +210,6 @@ public class Controller {
         return true;
     }
 
-
     public static boolean checkUsername(String username){
         String specialCharacters = "[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]+";
         Pattern pattern = Pattern.compile(specialCharacters);
@@ -172,9 +269,8 @@ public class Controller {
 
     }
 
-    public static void TESTPetCreation()
+    public static void TESTPetCreation(User user)
     {
-        User user = new User("Gerp123", "qwerty123", "gerp123@gmail.com");
         DatabaseManager database = DatabaseManager.getInstance();
 
         // Test Pet Data
@@ -187,42 +283,10 @@ public class Controller {
         database.addPetData(GermanShepherd);
         database.addPetData(RedeyedTreeFrog);
 
-        /*// Test Valid Pets
-        Pet Abby    = new Pet(database.getPetData(0), "Abby");
-        System.out.println("Database check: " + database.getPetData(0));
-        Pet Bernard = new Pet(database.getPetData(1), "Bernard", LocalDate.of(2006, 11, 13), "Berny.jpg", 'M');
-        Pet Charlie = new Pet(database.getPetData(2), "Chrissy", LocalDate.of(2021, 04, 23), "IMG1523.jpg", 'F');
-
-        // Test Invalid Pets
-        System.out.println("Invalid Name Errors: ");
-        Pet invalidName = new Pet(LabradorRetriever);
-        invalidName.setName(null);
-        invalidName.setName("");
-        invalidName.setName("ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567");
-        System.out.println("\nInvalid Sex Errors: ");
-        Pet invalidSex = new Pet(GermanShepherd);
-        invalidSex.setSex('?');
-        System.out.println("\nInvalid Date of Birth Errors: ");
-        Pet invalidDOB = new Pet(RedeyedTreeFrog);
-        invalidDOB.setDOB(null);
-        invalidDOB.setDOB(LocalDate.of(2222, 1, 1));
-        invalidDOB.setDOB(LocalDate.of(-1, 1, 1));
-
-        // Adding Valid Test Pets to User Profile
-        user.addPet(Abby);
-        user.addPet(Bernard);
-        user.addPet(Charlie);
-
-        // Print out all User pets
-        System.out.println("\nValid pets in user account: ");
-        user.displayPets(); */
-
-        /* User Input Section */
-
         // Display possible Pet options
         PetPlantBrowser browser = PetPlantBrowser.getInstance();
 
-        System.out.println("Browser Pet Options: ");
+        //System.out.println("Browser Pet Options: ");
         browser.display();
 
         System.out.println();
@@ -283,11 +347,86 @@ public class Controller {
 
         } while(!response.equals("end"));
 
+        newPet.setCareEvents(userReviewDefaultEvents(newPet.getPetData().getDefaultCareEvents(), newPet.getName()));
+
         user.addPet(newPet);
 
         // Print out all User pets
         System.out.println("\nValid pets in user account: ");
         user.displayPets();
+
+        System.out.println();
+    }
+
+    public static void TESTPlantCreation(User user)
+    {
+        DatabaseManager database = DatabaseManager.getInstance();
+
+        ArrayList<Event> bambooEventList = new ArrayList<>();
+        bambooEventList.add(new Event("Water Bamboo", "Giant Bamboo", LocalTime.of(6, 0, 0), LocalDate.now(), "Daily"));
+
+        // Test Pet Data
+        PlantData GiantBamboo = new PlantData("GiantBamboo.jpg", "Giant Bamboo", "Dendrocalamus Giganteus", "Bamboo", null, "High", bambooEventList);
+        PlantData PineBonsaiTree = new PlantData("PineBonsaiTree.jpg", "Pine Bonsai Tree", "Pinus thunbergii", "Bonsai Tree", null, "High", new ArrayList<Event>());
+        PlantData PeaceLily = new PlantData("PeaceLily.jpg", "Peace Lily", "Spathiphyllum", "House Plant", null, "Low", new ArrayList<Event>());
+
+        // Adding Test Pet Data to Database
+        database.addPlantData(GiantBamboo);
+        database.addPlantData(PineBonsaiTree);
+        database.addPlantData(PeaceLily);
+
+        // Display possible Pet options
+        PetPlantBrowser browser = PetPlantBrowser.getInstance();
+
+        System.out.println("Browser Plant Options: " + database.getPlantData(0));
+        browser.display();
+
+        System.out.println();
+
+        String plantDataChoice;
+        String response, plantName, plantProfileImage;
+
+        // Add New Plant
+        do {
+            System.out.println("Enter Plant Choice: ");
+            plantDataChoice = reader.nextLine();
+        } while (database.getPlantData(plantDataChoice) == null && database.getPlantData(Integer.parseInt(plantDataChoice) - 1) == null);
+
+        Plant newPlant = new Plant(database.getPlantData(plantDataChoice));
+        if (database.getPlantData(plantDataChoice) == null)
+        {
+            newPlant = new Plant(database.getPlantData(Integer.parseInt(plantDataChoice) - 1));
+        }
+
+        // Enter Additional Info
+        do {
+            System.out.println("Enter Additional Information? (enter name, pfp, or end to stop): ");
+            response = reader.nextLine();
+
+            if (response.equals("name"))
+            {
+                do {
+                    System.out.println("Enter Plant Name: ");
+                    plantName = reader.nextLine();
+                } while (!newPlant.setName(plantName));
+            }
+            else if (response.equals("pfp"))
+            {
+                do {
+                    System.out.println("Enter Plant Profile Picture: ");
+                    plantProfileImage = reader.nextLine();
+                } while (!newPlant.setProfileImageFilename(plantProfileImage));
+            }
+
+        } while(!response.equals("end"));
+
+        newPlant.setCareEvents(userReviewDefaultEvents(newPlant.getPlantData().getDefaultCareEvents(), newPlant.getName()));
+
+        user.addPlant(newPlant);
+
+        // Print out all User plants
+        System.out.println("\nValid plants in user account: ");
+        user.displayPlants();
 
         System.out.println();
     }

@@ -11,44 +11,15 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Dashboard from "./Dashboard.js";
 import { Link as RouterLink } from 'react-router-dom';
 import { Link as MUILink} from '@mui/material';
-const allPlantsData = [
-  {
-    name: 'Rose',
-    type: 'Flower',
-    age: '2 years',
-    picture: 'plant1.jpg',
-  },
-  {
-    name: 'Fern',
-    type: 'Fern',
-    age: '1 year',
-    picture: 'plant2.jpg',
-  },
-  {
-    name: 'Snake Plant',
-    type: 'Indoor',
-    age: '3 years',
-    picture: 'plant3.jpg',
-  },
-  {
-    name: 'Lavender',
-    type: 'Herb',
-    age: '1.5 years',
-    picture: 'plant4.jpg',
-  },
-  {
-    name: 'Palm',
-    type: 'Tree',
-    age: '4 years',
-    picture: 'plant5.jpg',
-  },
-  {
-    name: 'Succulent',
-    type: 'Cactus',
-    age: '2.5 years',
-    picture: 'plant6.jpg',
-  },
-];
+
+const allPlantsData = [];
+const storedPlants = JSON.parse(localStorage.getItem('plants')) || [];
+
+storedPlants.forEach(storedPlant => {
+    allPlantsData.push(storedPlant);
+});
+
+//console.log(allPlantsData);
 
 const MyPlantsPage = () => {
   return (

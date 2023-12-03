@@ -24,7 +24,7 @@ const defaultTheme = createTheme();
 
 // Define pet_options
 // Define pet_options
-const pet_options = [
+const petTypeOptions = [
     "Dog",
     "Cat",
     "Fish",
@@ -77,16 +77,49 @@ const pet_options = [
     "Bat",
 ];
 
+const petSpeciesOptions= [
+    "Maltipoo",
+    "Siamese",
+    "Golden Retriever",
+    "Persian",
+    "Beagle",
+    "Ragdoll",
+];
+
 
 export default function AddPet() {
     const handleSubmit = (event) => {
-        event.preventDefault();
+
+
+
+        /*event.preventDefault();
         const data = new FormData(event.currentTarget);
         console.log({
             petType: data.get('petType'),
             age: data.get('age'),
             picture: data.get('picture'), // This will contain the File object
-        });
+        });*/
+        event.preventDefault();
+
+        //localStorage.clear();
+
+        // Get existing items from local storage
+        const existingItems = JSON.parse(localStorage.getItem('pets')) || [];
+
+        const petData = {
+            petID: existingItems.length > 0 ? Math.max(...existingItems.map(item => item.petID)) + 1 : 0, //document.getElementById('petID').value,
+            petName: document.getElementById('name').value,
+            species: document.getElementById('petSpecies').value,
+            type: document.getElementById('petType').value,
+            age: document.getElementById('age').value,
+            picture: document.getElementById('picture').files[0].name,
+        }
+
+        existingItems[petData.petID] = petData;
+
+        //console.log(existingItems);
+
+        localStorage.setItem('pets', JSON.stringify(existingItems));
     };
 
     return (
@@ -121,16 +154,45 @@ export default function AddPet() {
                     </Typography>
                     <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                         <Grid container spacing={2}>
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    id="name"
+                                    label="Name"
+                                    name="name"
+                                    type="text"
+                                    autoComplete="off"
+                                />
+                            </Grid>
                             <Grid item xs={12} >
                                 <Autocomplete
                                     freeSolo
                                     id="petType"
                                     disableClearable
-                                    options={pet_options}
+                                    options={petTypeOptions}
                                     renderInput={(params) => (
                                         <TextField
                                             {...params}
                                             label="Pet Type"
+                                            InputProps={{
+                                                ...params.InputProps,
+                                                type: 'search',
+                                            }}
+                                        />
+                                    )}
+                                />
+                            </Grid>
+                            <Grid item xs={12} >
+                                <Autocomplete
+                                    freeSolo
+                                    id="petSpecies"
+                                    disableClearable
+                                    options={petSpeciesOptions}
+                                    renderInput={(params) => (
+                                        <TextField
+                                            {...params}
+                                            label="Pet Species"
                                             InputProps={{
                                                 ...params.InputProps,
                                                 type: 'search',
@@ -159,7 +221,7 @@ export default function AddPet() {
                                 />
                             </Grid>
                         </Grid>
-                        <MUILink component={RouterLink} to="/MyPets">
+
                         <Button
                             type="submit"
                             fullWidth
@@ -176,7 +238,7 @@ export default function AddPet() {
                         >
                             Add Pet
                         </Button>
-                        </MUILink>
+
                         <Grid container justifyContent="flex-end">
                             <Grid item>
                                 <MUILink href="/MyPets" variant="body2" sx={{ color: '#327155' }}>
