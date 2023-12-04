@@ -129,7 +129,7 @@ export default function AddPet() {
                 <AppBar position="fixed">
                                                   <Toolbar sx={{ height: '100%', bgcolor: "#327155"  }}>
                                                       <MUILink component={RouterLink} to="/Dashboard">
-                                                      <IconButton edge="start" color="inherit" aria-label="back">
+                                                      <IconButton edge="start" color="white" aria-label="back">
                                                           <ArrowBackIcon />
                                                       </IconButton>
                                                       </MUILink>

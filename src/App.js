@@ -5,6 +5,7 @@ import HomeScreen from './HomeScreen.js';
 import SignUp from "./Signup";
 import Login from "./Login.js";
 import Dashboard from "./Dashboard.js";
+import Calendar from "./Calendar";
 import MyProfile from "./MyProfile";
 import MyPlants from "./MyPlants";
 import MyPets from "./MyPets";
@@ -24,9 +25,10 @@ function App() {
 
         <hr />
         <Routes>
-        <Route path="/" exact element={<Login />} />
+        <Route path="/" exact element={<SignUp />} />
         <Route path="/Signup" element={<SignUp />} />
         <Route path="/Login" element={<Login />} />
+          <Route path="Calendar" exact element={<Calendar />} />
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/MyProfile" element={<MyProfile />} />
         <Route path="/MyPlants" element={<MyPlants />} />
@@ -34,7 +36,6 @@ function App() {
         <Route path="/AddPlant" element={<AddPlant />} />
         <Route path="/AddPet" element={<AddPet />} />
         <Route path="/ToDoList" element={<ToDoList />} />
-          <Route path="/Database" element={<DatabaseManager />} />
         </Routes>
       </div>
     </Router>
