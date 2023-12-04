@@ -1,0 +1,27 @@
+.navbar {
+    background-color: #fff8de; /* Adjust navbar background color */
+    color: white; /* Adjust text color */
+    padding: 90px;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+.nav-button {
+    display: block;
+    background-color: transparent;
+    color: darkgreen;
+    border: none;
+    padding: 45px 30px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 100%; /* Make the button extend the full width */
+}
+
+.nav-button:hover  {
+    background-color: rgba(153,169,143, 0.1);
+    width: 100%; /* Make the button extend the full width */
+    padding: 40px 30px;
+    margin-bottom: 10px;
+}
+

@@ -56,7 +56,7 @@ public class DatabaseManager {
 
     public PlantData getPlantData(int index)
     {
-        if(index > plantDataArray.size() || index < 0)
+        if(index < plantDataArray.size() && index >= 0)
         {
             return plantDataArray.get(index);
         }
@@ -67,7 +67,11 @@ public class DatabaseManager {
     {
         for(int i = 0; i < plantDataArray.size(); i++)
         {
-            if(plantDataArray.get(i).getSpecies().equals(plantDataName))
+            if(plantDataArray.get(i).getNickname().equals(plantDataName))
+            {
+                return plantDataArray.get(i);
+            }
+            else if(plantDataArray.get(i).getSpecies().equals(plantDataName))
             {
                 return plantDataArray.get(i);
             }

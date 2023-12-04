@@ -37,24 +37,62 @@ public class Event {
         return time;
     }
 
-    public void setTime(LocalTime time) {
-        this.time = time;
+    public boolean setTime(LocalTime time) {
+        if (time == null)
+        {
+            System.out.println("Please use the format: (HH-mm-ss)");
+        }
+        else
+        {
+            this.time = time;
+            return true;
+        }
+        return false;
     }
 
     public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public boolean setDate(LocalDate date) {
+        if (date == null)
+        {
+            System.out.println("Please use the format: (DD/MM/YYYY)");
+        }
+        else if (date.isBefore(LocalDate.of(0, 1, 1)))
+        {
+            System.out.println("Too old!");
+        }
+        else
+        {
+            this.date = date;
+            return true;
+        }
+        return false;
     }
 
     public String getFrequency() {
         return frequency;
     }
 
-    public void setFrequency(String frequency) {
-        this.frequency = frequency;
+    public boolean setFrequency(String frequency) {
+        if(frequency.equals("None"))
+        {
+            this.frequency = "None";
+        }
+        else if(frequency.equals("Daily"))
+        {
+            this.frequency = "Daily";
+        }
+        else if(frequency.equals("Weekly"))
+        {
+            this.frequency = "Weekly";
+        }
+        else
+        {
+            return false;
+        }
+        return true;
     }
 
     public void complete() {

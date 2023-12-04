@@ -27,16 +27,30 @@ public class Plant {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public boolean setName(String name) {
+        if (name == null)
+        {
+            System.out.println("Name is null.");
+        }
+        else if (name.equals("") || name.length() > 32)
+        {
+            System.out.println("Name length must be between 1 and 32.");
+        }
+        else
+        {
+            this.name = name;
+            return true;
+        }
+        return false;
     }
 
     public String getProfileImageFilename() {
         return profileImageFilename;
     }
 
-    public void setProfileImageFilename(String profileImageFilename) {
+    public boolean setProfileImageFilename(String profileImageFilename) {
         this.profileImageFilename = profileImageFilename;
+        return true;
     }
 
     public PlantData getPlantData() {
@@ -53,5 +67,13 @@ public class Plant {
 
     public void removeEvent(Event remEvent) {
         careEvents.remove(remEvent);
+    }
+
+    public void setCareEvents(ArrayList<Event> careEvents) {
+        this.careEvents = careEvents;
+    }
+
+    public ArrayList<Event> getCareEvents() {
+        return careEvents;
     }
 }

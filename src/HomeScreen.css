@@ -1,0 +1,83 @@
+/* HomeScreen.css */
+
+
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+.body-section {
+    display: flex;
+    flex-direction: column; /* Updated to column */
+    height: 100vh;
+    width: 100%; /* Make sure the top section spans the full width */
+}
+
+.top-section {
+    width: 100%; /* Make sure the top section spans the full width */
+}
+
+.top-image {
+    width: 100%; /* Take up the full width of the container */
+    max-height: 30vh; /* Set the maximum height to 25% of the viewport height */
+    object-fit: cover; /* Ensure the image covers the entire container */
+}
+
+
+.sidebar {
+    flex: 1; /* Adjust the ratio for the sidebar (eighth of the screen) */
+    background-color: #333; /* Adjust sidebar background color */
+    color: white; /* Adjust text color */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.main-content {
+    flex: 7; /* Adjust the ratio for the main content (seven-eighths of the screen) */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 100%;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #666;
+}
+
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.box {
+    flex: 0 0 calc(33.333% - 20px); /* Three boxes in a row with margin */
+    height: 0;
+    padding-bottom: calc(21% - 20px); /* Maintain 1:1 aspect ratio */
+    margin: 10px;
+    background-color: 	#dbead2;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Add media queries for responsiveness if needed */
+@media (max-width: 768px) {
+    .box {
+        flex: 0 0 calc(50% - 20px); /* Two boxes in a row with margin on smaller screens */
+        padding-bottom: calc(50% - 20px); /* Maintain 1:1 aspect ratio */
+    }
+}
